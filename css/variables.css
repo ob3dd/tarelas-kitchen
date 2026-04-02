@@ -1,0 +1,105 @@
+:root {
+  /* Colors — Dark Elegant Theme */
+  --bg-primary: #0A0A0A;
+  --bg-secondary: #111111;
+  --bg-card: #1A1A1A;
+  --bg-card-hover: #222222;
+  --bg-elevated: #1E1E1E;
+
+  --accent: #E87A2A;
+  --accent-dark: #C96820;
+  --accent-light: #F09A54;
+
+  --text-primary: #FFFFFF;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-muted: rgba(255, 255, 255, 0.45);
+  --text-on-accent: #FFFFFF;
+
+  --border: rgba(255, 255, 255, 0.08);
+  --border-light: rgba(255, 255, 255, 0.12);
+
+  --gold: #C8963E;
+  --cream: #FAF5EE;
+  --success: #4CAF50;
+  --error: #EF4444;
+
+  /* Typography */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+  --font-script: 'Dancing Script', cursive;
+
+  /* Type Scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2rem;
+  --text-4xl: 2.75rem;
+  --text-5xl: 3.5rem;
+  --text-6xl: 4.5rem;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+  --space-5xl: 8rem;
+
+  /* Layout */
+  --container-max: 1200px;
+  --header-height: 72px;
+  --border-radius: 12px;
+  --border-radius-lg: 20px;
+  --border-radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 30px rgba(232, 122, 42, 0.15);
+
+  /* Header / overlay backgrounds */
+  --header-bg-scrolled: rgba(10, 10, 10, 0.92);
+  --overlay-bg: rgba(0, 0, 0, 0.85);
+  --overlay-bg-light: rgba(0, 0, 0, 0.6);
+
+  /* Map filter */
+  --map-filter: grayscale(1) invert(0.92) contrast(0.83);
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========== LIGHT THEME ========== */
+[data-theme="light"] {
+  --bg-primary: #FAFAF8;
+  --bg-secondary: #F2F0EC;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #F8F6F2;
+  --bg-elevated: #FFFFFF;
+
+  --text-primary: #1A1A1A;
+  --text-secondary: rgba(0, 0, 0, 0.6);
+  --text-muted: rgba(0, 0, 0, 0.4);
+
+  --border: rgba(0, 0, 0, 0.08);
+  --border-light: rgba(0, 0, 0, 0.12);
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.1);
+  --shadow-glow: 0 0 30px rgba(232, 122, 42, 0.12);
+
+  --header-bg-scrolled: rgba(250, 250, 248, 0.92);
+  --overlay-bg: rgba(0, 0, 0, 0.4);
+  --overlay-bg-light: rgba(0, 0, 0, 0.3);
+  --map-filter: grayscale(1) contrast(0.83);
+}

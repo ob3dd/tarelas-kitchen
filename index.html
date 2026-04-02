@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tarela's Kitchen — Taste the Spice, Feel the Culture</title>
+  <meta name="description" content="Authentic Nigerian & West African cuisine. Order jollof rice, peppered shrimp, asun, and more from Tarela's Kitchen." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Dancing+Script:wght@700&family=DM+Sans:wght@400;500;600;700&family=Inter:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
+</head>
+<body>
+
+  <!-- ========== ANNOUNCEMENT BAR ========== -->
+  <div class="announcement-bar" id="announcement-bar">
+    <div class="announcement-bar__ticker">
+      <div class="announcement-bar__track">
+        <span>⚠ ALL BOOKINGS MUST BE CONFIRMED WITHIN 24 HOURS — <a href="#" onclick="document.getElementById('policy-overlay').classList.add('is-open');return false;">View Order Policy</a></span>
+        <span>⚠ ALL BOOKINGS MUST BE CONFIRMED WITHIN 24 HOURS — <a href="#" onclick="document.getElementById('policy-overlay').classList.add('is-open');return false;">View Order Policy</a></span>
+        <span>⚠ ALL BOOKINGS MUST BE CONFIRMED WITHIN 24 HOURS — <a href="#" onclick="document.getElementById('policy-overlay').classList.add('is-open');return false;">View Order Policy</a></span>
+      </div>
+    </div>
+    <button class="announcement-bar__close" aria-label="Dismiss" onclick="document.getElementById('announcement-bar').style.display='none';sessionStorage.setItem('bar-dismissed','1');">✕</button>
+  </div>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header" id="header">
+    <div class="container">
+      <a href="#" class="header__logo">
+        <img src="/images/logo.svg" alt="Tarela's Kitchen" />
+        <span class="header__logo-text">
+          <span class="logo-name"><span class="logo-tarela">Tarela's</span> <span class="logo-kitchen">Kitchen</span></span>
+          <span class="logo-tagline">Taste the spice, feel the culture</span>
+        </span>
+      </a>
+      <nav class="header__nav">
+        <a href="#" class="active">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#about">About Us</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header__actions">
+        <button class="header__theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+          <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+        <button class="header__cart" id="cart-toggle" aria-label="Open cart">
+          <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+          </svg>
+          <span class="header__cart-badge" id="cart-badge">0</span>
+        </button>
+        <div class="header__cta">
+          <a href="#menu" class="btn btn--primary btn--small">Order Now</a>
+        </div>
+        <button class="header__toggle" id="menu-toggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobile-nav">
+    <div class="mobile-nav__panel">
+      <a href="#">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#about">About Us</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+      <a href="#menu" class="btn btn--primary">Order Now</a>
+    </div>
+  </div>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero__content" data-animate="fade-up">
+        <p class="hero__label">Tarela's Kitchen</p>
+        <h1 class="hero__title">
+          Taste the Spice,<br>Feel the <span class="accent-text">Culture</span>
+        </h1>
+        <p class="hero__subtitle">Experience authentic Nigerian & West African cuisine crafted with passion, fresh ingredients, and unforgettable flavors.</p>
+        <div class="hero__buttons">
+          <a href="#menu" class="btn btn--primary">
+            Explore Our Menu
+            <span class="arrow"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </a>
+        </div>
+      </div>
+      <div class="hero__right" data-animate="fade-left" data-delay="2">
+        <div class="hero__image-placeholder">
+          <!-- REPLACE: Add hero image or video here -->
+          <div class="placeholder-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <p>Hero Image / Video</p>
+          </div>
+        </div>
+        <div class="hero__features">
+          <div class="hero__feature">
+            <h4>Special Promo</h4>
+            <p>Free delivery on orders over $40</p>
+          </div>
+          <div class="hero__feature">
+            <h4>Chef's Experience</h4>
+            <p>Authentic recipes, bold flavors</p>
+          </div>
+          <div class="hero__feature">
+            <h4>Fresh Daily</h4>
+            <p>Made fresh every single day</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FEATURED DISHES (About/Preview) ========== -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about__header">
+        <div>
+          <p class="section-label">Our Specials</p>
+          <h2 class="section-title">Indulge in<br>Culinary Artistry</h2>
+        </div>
+        <p class="section-desc">Explore our finest selections, crafted to perfection by our world-class chef.</p>
+      </div>
+      <div class="about__cards">
+        <div class="about__card" data-animate="scale-in" data-delay="1">
+          <div class="about__card-image">
+            <!-- REPLACE: Food image -->
+            <img src="/images/menu/jollof-rice.jpg" alt="Jollof Rice" loading="lazy" />
+          </div>
+          <div class="about__card-body">
+            <p class="about__card-name">Jollof Rice</p>
+            <div class="about__card-bottom">
+              <span class="about__card-price">$15</span>
+              <div class="about__card-actions">
+                <button class="card-btn" data-name="Jollof Rice" data-price="15.99" data-image="/images/menu/jollof-rice.jpg">
+                  Order Now
+                  <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+                <span class="about__card-rating"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 5.0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about__card" data-animate="scale-in" data-delay="2">
+          <div class="about__card-image">
+            <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=500&q=80" alt="Peppered Shrimp" loading="lazy" />
+          </div>
+          <div class="about__card-body">
+            <p class="about__card-name">Peppered Shrimp</p>
+            <div class="about__card-bottom">
+              <span class="about__card-price">$18</span>
+              <div class="about__card-actions">
+                <button class="card-btn" data-name="Peppered Shrimp" data-price="18.99" data-image="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=200&q=60">
+                  Order Now
+                  <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+                <span class="about__card-rating"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 4.9</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about__card" data-animate="scale-in" data-delay="3">
+          <div class="about__card-image">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&q=80" alt="Chocolate Cake" loading="lazy" />
+          </div>
+          <div class="about__card-body">
+            <p class="about__card-name">Chocolate Lava Cake</p>
+            <div class="about__card-bottom">
+              <span class="about__card-price">$8</span>
+              <div class="about__card-actions">
+                <button class="card-btn" data-name="Chocolate Cake" data-price="8.99" data-image="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&q=60">
+                  Order Now
+                  <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+                <span class="about__card-rating"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 5.0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FEATURES (Serving You Better) ========== -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="features__grid">
+        <div class="features__content">
+          <div>
+            <p class="section-label">Why Choose Us</p>
+            <h2 class="section-title">Serving You<br>Better</h2>
+            <p class="section-desc">We offer more than just great food. From online orders to world-class dishes, we ensure every part of your experience is exceptional.</p>
+          </div>
+          <div class="features__list">
+            <div class="features__item" data-animate="fade-right" data-delay="1">
+              <div class="features__icon">
+                <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <h4>Online Orders</h4>
+                <p>Order from anywhere, delivered to your door</p>
+              </div>
+            </div>
+            <div class="features__item" data-animate="fade-right" data-delay="2">
+              <div class="features__icon">
+                <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+              <div>
+                <h4>World-Class Dishes</h4>
+                <p>Authentic recipes from West Africa</p>
+              </div>
+            </div>
+            <div class="features__item" data-animate="fade-right" data-delay="3">
+              <div class="features__icon">
+                <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <h4>24/7 Availability</h4>
+                <p>Order anytime, enjoy always</p>
+              </div>
+            </div>
+            <div class="features__item" data-animate="fade-right" data-delay="4">
+              <div class="features__icon">
+                <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
+              <div>
+                <h4>Organized Dining Spaces</h4>
+                <p>Premium catering for your events</p>
+              </div>
+            </div>
+          </div>
+          <a href="#menu" class="btn btn--outline" style="align-self: flex-start; margin-top: var(--space-md);">
+            Place Your Order
+            <span class="arrow"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </a>
+        </div>
+        <div class="features__images" data-animate="fade-left">
+          <div class="features__image">
+            <img src="/images/gallery/penne-ribs.jpg" alt="Penne and braised ribs" loading="lazy" />
+          </div>
+          <div class="features__image">
+            <img src="/images/gallery/catering-spread.jpg" alt="Full catering setup" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== STATS BAR ========== -->
+  <div class="stats-bar">
+    <div class="container">
+      <div class="stats-bar__grid">
+        <div class="stats-bar__item" data-animate="fade-up" data-delay="1">
+          <div class="stats-bar__number" data-count="500">0</div>
+          <div class="stats-bar__label">Meals Served</div>
+        </div>
+        <div class="stats-bar__item" data-animate="fade-up" data-delay="2">
+          <div class="stats-bar__number" data-count="4.9" data-decimals="1">0</div>
+          <div class="stats-bar__label">Customer Rating</div>
+        </div>
+        <div class="stats-bar__item" data-animate="fade-up" data-delay="3">
+          <div class="stats-bar__number" data-count="15">0</div>
+          <div class="stats-bar__label">Signature Dishes</div>
+        </div>
+        <div class="stats-bar__item" data-animate="fade-up" data-delay="4">
+          <div class="stats-bar__number" data-count="100" data-suffix="%">0</div>
+          <div class="stats-bar__label">Fresh Ingredients</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== SHOWCASE (Luxury Dining) ========== -->
+  <section class="showcase">
+    <div class="container">
+      <div class="showcase__grid">
+        <div class="showcase__images" data-animate="fade-right">
+          <div class="showcase__img">
+            <img src="/images/gallery/salmon-plate.jpg" alt="Grilled salmon" loading="lazy" />
+          </div>
+          <div class="showcase__img">
+            <img src="/images/gallery/shrimp-skewers.jpg" alt="Shrimp skewers" loading="lazy" />
+          </div>
+        </div>
+        <div class="showcase__content" data-animate="fade-left">
+          <h2>Authentic flavors,<br>crafted with <span class="accent-text">love</span></h2>
+          <p>Whether it's a casual dinner or a grand celebration, we're here to make it special. Every dish tells a story of culture, tradition, and bold West African flavor.</p>
+          <a href="#menu" class="btn btn--primary" style="align-self: flex-start;">
+            Place Your Order
+            <span class="arrow"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FULL MENU ========== -->
+  <section class="menu" id="menu">
+    <div class="container">
+      <div class="menu__header">
+        <div>
+          <p class="section-label">Our Menu</p>
+          <h2 class="section-title">What's Cooking</h2>
+        </div>
+        <div class="menu__tabs" role="tablist">
+          <button class="menu__tab is-active" data-category="all" role="tab">All</button>
+          <button class="menu__tab" data-category="rice" role="tab">Rice</button>
+          <button class="menu__tab" data-category="protein" role="tab">Proteins</button>
+          <button class="menu__tab" data-category="soup" role="tab">Soups</button>
+          <button class="menu__tab" data-category="breakfast" role="tab">Breakfast</button>
+          <button class="menu__tab" data-category="baked" role="tab">Baked</button>
+          <button class="menu__tab" data-category="sides" role="tab">Sides</button>
+        </div>
+      </div>
+
+      <div class="menu__grid" id="menu-grid">
+        <!-- Jollof Rice -->
+        <div class="menu__card" data-category="rice" data-animate="scale-in">
+          <div class="menu__card-image">
+            <img src="/images/menu/jollof-rice.jpg" alt="Jollof Rice" loading="lazy" />
+            <span class="menu__card-badge">Popular</span>
+          </div>
+          <div class="menu__card-body">
+            <h3 class="menu__card-title">Jollof Rice</h3>
+            <p class="menu__card-desc">Smoky, rich, and perfectly spiced West African jollof rice.</p>
+            <div class="menu__card-footer">
+              <span class="menu__card-price">$15.99</span>
+              <button class="menu__card-add" data-name="Jollof Rice" data-price="15.99" data-image="/images/menu/jollof-rice.jpg">Order <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            </div>
+          </div>
+        </div>
+        <!-- Fried Rice -->
+        <div class="menu__card" data-category="rice" data-animate="scale-in">
+          <div class="menu__card-image">
+            <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=500&q=80" alt="Fried Rice" loading="lazy" />
+          </div>
+          <div class="menu__card-body">
+            <h3 class="menu__card-title">Nigerian Fried Rice</h3>
+            <p class="menu__card-desc">Colorful, savory fried rice loaded with vegetables and seasoning.</p>
+            <div class="menu__card-footer">
+              <span class="menu__card-price">$14.99</span>
+              <button class="menu__card-add" data-name="Nigerian Fried Rice" data-price="14.99" data-image="https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=200&q=60">Order <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            </div>
+          </div>
+        </div>
+        <!-- Peppered Shrimp -->
+        <div class="menu__card" data-category="protein" data-animate="scale-in">
+          <div class="menu__card-image">
+            <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=500&q=80" alt="Peppered Shrimp" loading="lazy" />
+            <span class="menu__card-badge">Spicy</span>
+          </div>
+          <div class="menu__card-body">
+            <h3 class="menu__card-title">Peppered Shrimp</h3>
+            <p class="menu__card-desc">Juicy shrimp tossed in a fiery pepper sauce with onions.</p>
+            <div class="menu__card-footer">
+              <span class="menu__card-price">$18.99</span>
+              <button class="menu__card-add" data-name="Peppered Shrimp" data-price="18.99" data-image="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=200&q=60">Order <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            </div>
+          </div>
+        </div>
+        <!-- Asun -->
+        <div class="menu__card" data-category="protein" data-animate="scale-in">
+          <div class="menu__card-image">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=500&q=80" alt="Asun" loading="lazy" />
+            <span class="menu__card-badge">Spicy</span>
+          </div>
+          <div class="menu__card-body">
+            <h3 class="menu__card-title">Asun (Peppered Goat)</h3>
+            <p class="menu__card-desc">Smoky grilled goat meat in a bold, spicy pepper mix.</p>
+            <div class="menu__card-footer">
+              <span class="menu__card-price">$22.99</span>
+              <button class="menu__card-add" data-name="Asun" data-price="22.99" data-image="https://images.unsplash.com/photo-1544025162-d76694265947?w=200&q=60">Order <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            </div>
+          </div>
+        </div>
+        <!-- Grilled Fish -->
+        <div class="menu__card" data-category="protein" data-animate="scale-in">
+          <div class="menu__card-image">
+            <img src="https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?w=500&q=80" alt="Grilled Fish" loading="lazy" />
+          </div>
+          <div class="menu__card-body">
+            <h3 class="menu__card-title">Grilled Fish</h3>
+            <p class="menu__card-desc">Whole fish grilled to perfection with traditional spices.</p>
+            <div class="menu__card-footer">
+              <span class="menu__card-price">$19.99</span>
+              <button class="menu__card-add" data-name="Grilled Fish" data-price="19.99" data-image="https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?w=200&q=60">Order <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            </div>
+          </div>
+        </div>
+        <!-- Egusi Soup -->
+        <div class="menu__card" data-category="soup" data-animate="scale-in">
+          <div class="menu__card-image">
+            <img src="https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=500&q=80" alt="Egusi Soup" loading="lazy" />
+            <span class="menu__card-badge">Popular</span>
+          </div>
+          <div class="menu__card-body">
+            <h3 class="menu__card-title">Egusi Soup</h3>
+            <p class="menu__card-desc">Rich melon seed soup with leafy greens and assorted meats.</p>
+            <div class="menu__card-footer">
+              <span class="menu__card-price">$16.99</span>
+              <button class="menu__card-add" data-name="Egusi Soup" data-price="16.99" data-image="https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=200&q=60">Order <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            </div>
+          </div>
+        </div>
+        <!-- Beans Porridge -->
+        <div class="menu__card" data-category="soup" data-animate="scale-in">
+          <div class="menu__card-image">
+            <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=500&q=80" alt="Beans Porridge" loading="lazy" />
+          </div>
+          <div class="menu__card-body">
+            <h3 class="menu__card-title">Beans Porridge</h3>
+            <p class="menu__card-desc">Hearty porridge with palm oil, peppers, and plantain.</p>
+            <div class="menu__card-footer">
+              <span class="menu__card-price">$12.99</span>
+              <button class="menu__card-add" data-name="Beans Porridge" data-price="12.99" data-image="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=200&q=60">Order <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            </div>
+          </div>
+        </div>
+        <!-- Spaghetti -->
+        <div class="menu__card" data-category="rice" data-animate="scale-in">
+          <div class="menu__card-image">
+            <img src="https://images.unsplash.com/photo-1551892374-ecf8754cf8b0?w=500&q=80" alt="Nigerian Spaghetti" loading="lazy" />
+          </div>
+          <div class="menu__card-body">
+            <h3 class="menu__card-title">Nigerian Spaghetti</h3>
+            <p class="menu__card-desc">Jollof-style spaghetti with a rich tomato pepper sauce.</p>
+            <div class="menu__card-footer">
+              <span class="menu__card-price">$13.99</span>
+              <button class="menu__card-add" data-name="Nigerian Spaghetti" data-price="13.99" data-image="https://images.unsplash.com/photo-1551892374-ecf8754cf8b0?w=200&q=60">Order <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            </div>
+          </div>
+        </div>
+        <!-- Pancakes -->
+        <div class="menu__card" data-category="breakfast" data-animate="scale-in">
+          <div class="menu__card-image">
+            <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=500&q=80" alt="Pancake Stack" loading="lazy" />
+          </div>
+          <div class="menu__card-body">
+            <h3 class="menu__card-title">Pancake Stack</h3>
+            <p class="menu__card-desc">Fluffy pancakes with fresh berries and maple syrup.</p>
+            <div class="menu__card-footer">
+              <span class="menu__card-price">$11.99</span>
+              <button class="menu__card-add" data-name="Pancake Stack" data-price="11.99" data-image="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=200&q=60">Order <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            </div>
+          </div>
+        </div>
+        <!-- Waffles -->
+        <div class="menu__card" data-category="breakfast" data-animate="scale-in">
+          <div class="menu__card-image">
+            <img src="https://images.unsplash.com/photo-1562376552-0d160a2f238d?w=500&q=80" alt="Waffles" loading="lazy" />
+          </div>
+          <div class="menu__card-body">
+            <h3 class="menu__card-title">Belgian Waffles</h3>
+            <p class="menu__card-desc">Crispy golden waffles with cream and fresh fruit.</p>
+            <div class="menu__card-footer">
+              <span class="menu__card-price">$12.99</span>
+              <button class="menu__card-add" data-name="Belgian Waffles" data-price="12.99" data-image="https://images.unsplash.com/photo-1562376552-0d160a2f238d?w=200&q=60">Order <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            </div>
+          </div>
+        </div>
+        <!-- Chocolate Cake -->
+        <div class="menu__card" data-category="baked" data-animate="scale-in">
+          <div class="menu__card-image">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&q=80" alt="Chocolate Cake" loading="lazy" />
+            <span class="menu__card-badge">New</span>
+          </div>
+          <div class="menu__card-body">
+            <h3 class="menu__card-title">Chocolate Cake</h3>
+            <p class="menu__card-desc">Decadent chocolate cake with rich ganache drip.</p>
+            <div class="menu__card-footer">
+              <span class="menu__card-price">$8.99</span>
+              <button class="menu__card-add" data-name="Chocolate Cake" data-price="8.99" data-image="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&q=60">Order <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            </div>
+          </div>
+        </div>
+        <!-- Banana Bread -->
+        <div class="menu__card" data-category="baked" data-animate="scale-in">
+          <div class="menu__card-image">
+            <img src="https://images.unsplash.com/photo-1605090930601-81e3b8e7e5db?w=500&q=80" alt="Banana Bread" loading="lazy" />
+          </div>
+          <div class="menu__card-body">
+            <h3 class="menu__card-title">Banana Bread</h3>
+            <p class="menu__card-desc">Moist homemade banana bread with cinnamon.</p>
+            <div class="menu__card-footer">
+              <span class="menu__card-price">$6.99</span>
+              <button class="menu__card-add" data-name="Banana Bread" data-price="6.99" data-image="https://images.unsplash.com/photo-1605090930601-81e3b8e7e5db?w=200&q=60">Order <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            </div>
+          </div>
+        </div>
+        <!-- Puff Puff -->
+        <div class="menu__card" data-category="sides" data-animate="scale-in">
+          <div class="menu__card-image">
+            <img src="https://images.unsplash.com/photo-1626803775151-61d756612f97?w=500&q=80" alt="Puff Puff" loading="lazy" />
+            <span class="menu__card-badge">Popular</span>
+          </div>
+          <div class="menu__card-body">
+            <h3 class="menu__card-title">Puff Puff</h3>
+            <p class="menu__card-desc">Golden fried dough balls — sweet, fluffy, irresistible.</p>
+            <div class="menu__card-footer">
+              <span class="menu__card-price">$5.99</span>
+              <button class="menu__card-add" data-name="Puff Puff" data-price="5.99" data-image="https://images.unsplash.com/photo-1626803775151-61d756612f97?w=200&q=60">Order <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            </div>
+          </div>
+        </div>
+        <!-- Plantain -->
+        <div class="menu__card" data-category="sides" data-animate="scale-in">
+          <div class="menu__card-image">
+            <img src="https://images.unsplash.com/photo-1528751014936-863e6e7a319c?w=500&q=80" alt="Fried Plantain" loading="lazy" />
+          </div>
+          <div class="menu__card-body">
+            <h3 class="menu__card-title">Fried Plantain (Dodo)</h3>
+            <p class="menu__card-desc">Sweet caramelized plantain fried to golden perfection.</p>
+            <div class="menu__card-footer">
+              <span class="menu__card-price">$4.99</span>
+              <button class="menu__card-add" data-name="Fried Plantain" data-price="4.99" data-image="https://images.unsplash.com/photo-1528751014936-863e6e7a319c?w=200&q=60">Order <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            </div>
+          </div>
+        </div>
+        <!-- Chin Chin -->
+        <div class="menu__card" data-category="sides" data-animate="scale-in">
+          <div class="menu__card-image">
+            <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=500&q=80" alt="Chin Chin" loading="lazy" />
+          </div>
+          <div class="menu__card-body">
+            <h3 class="menu__card-title">Chin Chin</h3>
+            <p class="menu__card-desc">Crunchy, sweet fried dough bites — a Nigerian classic.</p>
+            <div class="menu__card-footer">
+              <span class="menu__card-price">$4.99</span>
+              <button class="menu__card-add" data-name="Chin Chin" data-price="4.99" data-image="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=200&q=60">Order <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== GALLERY ========== -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="gallery__header">
+        <div>
+          <p class="section-label">Gallery</p>
+          <h2 class="section-title">Fresh from the Kitchen</h2>
+        </div>
+      </div>
+      <div class="gallery__grid">
+        <div class="gallery__item gallery__item--tall">
+          <img src="/images/gallery/rice-pan.jpg" alt="Signature rice pan" loading="lazy" />
+          <div class="gallery__overlay"><span>Fried Rice</span></div>
+        </div>
+        <div class="gallery__item">
+          <img src="/images/gallery/peppered-shrimp.jpg" alt="Peppered shrimp" loading="lazy" />
+          <div class="gallery__overlay"><span>Peppered Shrimp</span></div>
+        </div>
+        <div class="gallery__item">
+          <img src="/images/gallery/asun.jpg" alt="Asun" loading="lazy" />
+          <div class="gallery__overlay"><span>Fried Yam and Asun</span></div>
+        </div>
+        <div class="gallery__item gallery__item--wide">
+          <img src="/images/gallery/food-spread.jpg" alt="Food spread" loading="lazy" />
+          <div class="gallery__overlay"><span>The Full Spread</span></div>
+        </div>
+        <div class="gallery__item">
+          <img src="/images/gallery/plated-fish.jpg" alt="Plated dish" loading="lazy" />
+          <div class="gallery__overlay"><span>Chef's Plate</span></div>
+        </div>
+        <div class="gallery__item gallery__item--tall">
+          <img src="/images/gallery/spaghetti-chicken.jpg" alt="Nigerian spaghetti" loading="lazy" />
+          <div class="gallery__overlay"><span>Nigerian Spaghetti</span></div>
+        </div>
+        <div class="gallery__item">
+          <img src="/images/gallery/puff-puff.jpg" alt="Puff puff" loading="lazy" />
+          <div class="gallery__overlay"><span>Puff Puff</span></div>
+        </div>
+        <div class="gallery__item">
+          <img src="/images/gallery/egusi-soup.jpg" alt="Egusi soup" loading="lazy" />
+          <div class="gallery__overlay"><span>Eba and Vegetable Stew</span></div>
+        </div>
+        <div class="gallery__item gallery__item--wide">
+          <img src="/images/gallery/pasta-ribs.jpg" alt="Pasta with ribs" loading="lazy" />
+          <div class="gallery__overlay"><span>Pasta &amp; Ribs</span></div>
+        </div>
+        <div class="gallery__item">
+          <img src="/images/gallery/spaghetti-tray.jpg" alt="Spaghetti tray" loading="lazy" />
+          <div class="gallery__overlay"><span>Spaghetti Tray</span></div>
+        </div>
+        <div class="gallery__item">
+          <img src="/images/gallery/puff-puff-platter.jpg" alt="Puff puff platter" loading="lazy" />
+          <div class="gallery__overlay"><span>Party Platter</span></div>
+        </div>
+        <div class="gallery__item">
+          <img src="/images/gallery/banana-bread.jpg" alt="Banana bread" loading="lazy" />
+          <div class="gallery__overlay"><span>Banana Bread</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TESTIMONIALS ========== -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="testimonials__header">
+        <div>
+          <p class="section-label">Testimonials</p>
+          <h2 class="section-title">Praise from<br>Our Patrons</h2>
+        </div>
+        <p class="section-desc">Real voices. Honest praise. Unforgettable moments shared at our table.</p>
+      </div>
+      <div class="testimonials__grid">
+        <div class="testimonial-card" data-animate="fade-up" data-delay="1">
+          <div class="testimonial-card__header">
+            <div class="testimonial-card__avatar">A</div>
+            <div>
+              <p class="testimonial-card__name">Adaeze O.</p>
+              <p class="testimonial-card__role">Loyal Customer</p>
+            </div>
+          </div>
+          <div class="testimonial-card__stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-card__quote">"A truly unforgettable experience. From the ambiance to the plating, everything was flawless. The jollof was like a journey to Lagos itself."</p>
+        </div>
+        <div class="testimonial-card" data-animate="fade-up" data-delay="2">
+          <div class="testimonial-card__header">
+            <div class="testimonial-card__avatar">D</div>
+            <div>
+              <p class="testimonial-card__name">Daniel I.</p>
+              <p class="testimonial-card__role">Family & Friends</p>
+            </div>
+          </div>
+          <div class="testimonial-card__stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-card__quote">"Every bite was a masterpiece. You can taste the passion and precision in every dish. Absolutely worth it."</p>
+        </div>
+        <div class="testimonial-card" data-animate="fade-up" data-delay="3">
+          <div class="testimonial-card__header">
+            <div class="testimonial-card__avatar">A</div>
+            <div>
+              <p class="testimonial-card__name">Asa B.</p>
+              <p class="testimonial-card__role">Lifestyle Blogger</p>
+            </div>
+          </div>
+          <div class="testimonial-card__stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-card__quote">"Exceptional service, world-class flavors, and a setting that makes you feel like royalty. My new favorite dining destination."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="faq__header">
+        <p class="section-label">FAQ</p>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+      <div class="faq__list">
+        <div class="faq__item" data-animate="fade-up">
+          <button class="faq__question">How do I place an order?<svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <div class="faq__answer"><div class="faq__answer-inner">Browse our menu, add items to your cart, and proceed to checkout. Your order details will be sent directly to us via WhatsApp, and we'll confirm within minutes.</div></div>
+        </div>
+        <div class="faq__item" data-animate="fade-up">
+          <button class="faq__question">What areas do you deliver to?<svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <div class="faq__answer"><div class="faq__answer-inner">We currently deliver within a 15-mile radius. Delivery fees vary by distance. Contact us for availability in your area.</div></div>
+        </div>
+        <div class="faq__item" data-animate="fade-up">
+          <button class="faq__question">Do you accommodate dietary restrictions?<svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <div class="faq__answer"><div class="faq__answer-inner">Yes! Many dishes can be adapted. Please mention allergies or dietary preferences in the special instructions when ordering.</div></div>
+        </div>
+        <div class="faq__item" data-animate="fade-up">
+          <button class="faq__question">What payment methods do you accept?<svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <div class="faq__answer"><div class="faq__answer-inner">We accept cash on delivery, bank transfers, and major payment apps. Details are shared when your order is confirmed via WhatsApp.</div></div>
+        </div>
+        <div class="faq__item" data-animate="fade-up">
+          <button class="faq__question">What are your operating hours?<svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <div class="faq__answer"><div class="faq__answer-inner">Monday through Thursday, 10:00 AM to 8:00 PM. Orders placed after hours are processed the next business day.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA BANNER ========== -->
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-banner__inner">
+        <div class="cta-banner__image" data-animate="fade-right">
+          <!-- REPLACE: CTA image -->
+          <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=700&q=80" alt="Beautiful food spread" loading="lazy" />
+        </div>
+        <div class="cta-banner__content" data-animate="fade-left">
+          <h2>Let Flavor<br>Lead the <span class="accent-text">Way</span></h2>
+          <p>Place your order today and indulge in a taste that lingers. Experience the bold, authentic flavors of West Africa.</p>
+          <a href="#menu" class="btn btn--primary">
+            Place Your Order
+            <span class="arrow"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== NEWSLETTER ========== -->
+  <div class="newsletter">
+    <div class="container">
+      <div class="newsletter__inner">
+        <h3 data-animate="fade-up">Stay in the Loop</h3>
+        <p data-animate="fade-up">Get updates on new dishes, special offers, and exclusive deals.</p>
+        <form class="newsletter__form" id="newsletter-form" data-animate="fade-up">
+          <input type="email" class="newsletter__input" placeholder="Your email address" required />
+          <button type="submit" class="btn btn--primary btn--small">Subscribe</button>
+        </form>
+        <p class="newsletter__success" id="newsletter-success">Thanks for subscribing!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <p class="section-label text-center">Get in Touch</p>
+      <h2 class="section-title text-center" style="margin-bottom: var(--space-3xl);">Contact Us</h2>
+      <div class="contact__grid">
+        <div class="contact__info">
+          <div class="contact__item" data-animate="fade-up">
+            <div class="contact__icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><h4>Location</h4><p>Atlanta, GA</p></div>
+          </div>
+          <div class="contact__item" data-animate="fade-up" data-delay="1">
+            <div class="contact__icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><h4>Phone</h4><p><a href="tel:+16789139770">(678) 913-9770</a></p></div>
+          </div>
+          <div class="contact__item" data-animate="fade-up" data-delay="2">
+            <div class="contact__icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div><h4>Email</h4><p><a href="mailto:hello@tarelaskitchen.com">hello@tarelaskitchen.com</a></p></div>
+          </div>
+          <div class="contact__item" data-animate="fade-up" data-delay="3">
+            <div class="contact__icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div><h4>Hours</h4><p>Mon — Thu: 10AM — 8PM</p></div>
+          </div>
+          <div class="contact__socials" data-animate="fade-up">
+            <a href="https://www.instagram.com/tarela_kitchen" target="_blank" rel="noopener" class="contact__social" aria-label="Instagram"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://wa.me/16789139770" target="_blank" rel="noopener" class="contact__social" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none" style="width:18px;height:18px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+          </div>
+        </div>
+        <div class="contact__map" data-animate="fade-left">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d212456.73!2d-84.549!3d33.749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5045d6993098d%3A0x66fede2f990b630b!2sAtlanta%2C%20GA!5e0!3m2!1sen!2sus!4v1" allowfullscreen="" loading="lazy" title="Map"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__brand-identity">
+            <span class="footer__brand-name"><span class="logo-tarela">Tarela's</span> <span class="logo-kitchen">Kitchen</span></span>
+            <span class="footer__brand-tagline">Taste the Spice, Feel the Culture</span>
+          </div>
+          <p>Authentic Nigerian & West African cuisine crafted with passion and the finest ingredients.</p>
+          <div class="footer__brand-socials">
+            <a href="https://www.instagram.com/tarela_kitchen" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://wa.me/16789139770" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8" stroke-linecap="round"/></svg></a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <h4>Tarela's</h4>
+          <a href="#about">Our Story</a>
+          <a href="#menu">Our Menu</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#testimonials">Reviews</a>
+        </div>
+        <div class="footer__col">
+          <h4>Contact Us</h4>
+          <a href="#">Atlanta, GA</a>
+          <a href="tel:+16789139770">(678) 913-9770</a>
+          <a href="mailto:hello@tarelaskitchen.com">hello@tarelaskitchen.com</a>
+          <a href="#">Mon — Thu: 10AM - 8PM</a>
+        </div>
+        <div class="footer__col">
+          <h4>Support</h4>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact Us</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#" onclick="document.getElementById('policy-overlay').classList.add('is-open');return false;">Order Policy</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2026 Tarela's Kitchen. All rights reserved.</p>
+        <div class="footer__legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== CART DRAWER ========== -->
+  <div class="cart-overlay" id="cart-overlay">
+    <div class="cart-drawer">
+      <div class="cart__header"><h3>Your Cart</h3><button class="cart__close" id="cart-close" aria-label="Close cart"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+      <div class="cart__items" id="cart-items">
+        <div class="cart__empty" id="cart-empty">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <p>Your cart is empty</p>
+          <span>Add items from the menu to get started</span>
+        </div>
+      </div>
+      <div class="cart__footer" id="cart-footer" style="display:none;">
+        <div class="cart__subtotal"><span>Subtotal</span><span id="cart-subtotal">$0.00</span></div>
+        <button class="btn btn--primary cart__checkout-btn" id="checkout-btn">Proceed to Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== CHECKOUT MODAL ========== -->
+  <div class="checkout-overlay" id="checkout-overlay">
+    <div class="checkout-modal">
+      <div class="checkout__header"><h3>Checkout</h3><button class="checkout__close" id="checkout-close" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+      <div class="checkout__body">
+        <div class="checkout__summary" id="checkout-summary"></div>
+        <form class="checkout__form" id="checkout-form">
+          <div class="checkout__field"><label for="checkout-name">Full Name *</label><input type="text" id="checkout-name" name="name" required /><p class="error">Please enter your name</p></div>
+          <div class="checkout__field"><label for="checkout-phone">Phone Number *</label><input type="tel" id="checkout-phone" name="phone" required /><p class="error">Please enter your phone number</p></div>
+          <div class="checkout__field"><label for="checkout-email">Email</label><input type="email" id="checkout-email" name="email" /></div>
+          <div class="checkout__field"><label for="checkout-address">Delivery Address *</label><input type="text" id="checkout-address" name="address" required /><p class="error">Please enter your delivery address</p></div>
+          <div class="checkout__field"><label for="checkout-notes">Special Instructions</label><textarea id="checkout-notes" name="notes" rows="3" placeholder="Allergies, special requests..."></textarea></div>
+          <button type="submit" class="btn btn--primary checkout__submit">Place Order via WhatsApp</button>
+        </form>
+        <div class="checkout__confirmation" id="checkout-confirmation">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <h3>Order Sent!</h3>
+          <p>Your order has been sent via WhatsApp. We'll confirm your order shortly.</p>
+          <button class="btn btn--primary" onclick="document.getElementById('checkout-overlay').classList.remove('is-open')">Done</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== ORDER POLICY MODAL ========== -->
+  <div class="policy-overlay" id="policy-overlay" onclick="if(event.target===this)this.classList.remove('is-open')">
+    <div class="policy-modal">
+      <div class="policy__header">
+        <h3>Order Policy</h3>
+        <button class="policy__close" onclick="document.getElementById('policy-overlay').classList.remove('is-open')" aria-label="Close">&times;</button>
+      </div>
+      <div class="policy__body">
+        <div class="policy__section">
+          <h4>Deposit Policy</h4>
+          <p>To ensure a smooth and efficient order process, we require a <strong>30% deposit</strong> for every order. This deposit confirms your commitment and enables us to reserve resources and allocate time for its completion.</p>
+        </div>
+        <div class="policy__section">
+          <h4>Purpose of Deposit</h4>
+          <p>The deposit serves as a guarantee that you will follow through with the order, allowing us to:</p>
+          <ul>
+            <li>Reserve production time and resources</li>
+            <li>Prioritize your order in our workflow</li>
+            <li>Begin preparing materials for your order</li>
+          </ul>
+        </div>
+        <div class="policy__section">
+          <h4>Deposit Details</h4>
+          <ul>
+            <li><strong>Amount:</strong> 30% of total order value</li>
+            <li><strong>Payment methods:</strong> Zelle, CashApp, and Cash</li>
+            <li><strong>Due:</strong> Upon placement of order</li>
+          </ul>
+        </div>
+        <div class="policy__section">
+          <h4>Balance Payment</h4>
+          <p>The remaining balance (70% of total order value) is due when your order is completed. Failure to send payment will result in not receiving your order.</p>
+        </div>
+        <div class="policy__section">
+          <h4>Cancellation &amp; Refund Policy</h4>
+          <p>If you cancel your order, the deposit is <strong>non-refundable</strong>.</p>
+        </div>
+        <div class="policy__section policy__section--note">
+          <p>⚠ All bookings must be confirmed within <strong>24 hours</strong> of placement.</p>
+        </div>
+        <div class="policy__section policy__section--thanks">
+          <p>We appreciate your understanding and cooperation. Your business is valued, and we look forward to delivering exceptional quality and service.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/js/main.js"></script>
+  <script>
+    if (sessionStorage.getItem('bar-dismissed') === '1') {
+      document.getElementById('announcement-bar').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
