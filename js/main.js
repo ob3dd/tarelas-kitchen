@@ -8,6 +8,7 @@ import { initCheckout } from './checkout.js';
 import { initAccordion } from './accordion.js';
 import { initNewsletter } from './newsletter.js';
 import { initSlideshow } from './slideshow.js';
+import { initParallax } from './parallax.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
@@ -20,4 +21,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initAccordion();
   initNewsletter();
   initSlideshow();
+  initParallax();
 });
