@@ -6,12 +6,19 @@
 }
 
 section {
-  padding: var(--space-4xl) 0;
+  padding: var(--space-3xl) 0;
 }
 
 @media (min-width: 768px) {
   section {
     padding: var(--space-5xl) 0;
+  }
+}
+
+/* More breathing room on mobile */
+@media (max-width: 767px) {
+  .container {
+    padding: 0 var(--space-md);
   }
 }
 

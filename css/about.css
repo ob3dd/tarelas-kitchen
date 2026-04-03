@@ -129,3 +129,28 @@
   stroke: currentColor;
   fill: none;
 }
+
+/* Mobile card spacing */
+@media (max-width: 767px) {
+  .about__cards {
+    gap: var(--space-md);
+  }
+  .about__card-body {
+    padding: var(--space-md);
+  }
+  .about__card-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+  .about__card-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .about__card-name {
+    font-size: var(--text-sm);
+  }
+  .about__card-price {
+    font-size: var(--text-lg);
+  }
+}

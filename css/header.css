@@ -37,6 +37,69 @@
   border-radius: var(--border-radius-full);
 }
 
+/* Mobile header tweaks */
+@media (max-width: 767px) {
+  .header__logo img {
+    height: 40px;
+    width: 40px;
+  }
+  .logo-tarela {
+    font-size: 1.15rem;
+  }
+  .logo-kitchen {
+    font-size: 1.05rem;
+  }
+  .logo-tagline {
+    font-size: 0.48rem;
+  }
+  .header__actions {
+    gap: var(--space-sm);
+  }
+  .header__cart {
+    width: 36px;
+    height: 36px;
+  }
+  .header__cart svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Floating theme toggle FAB */
+.theme-fab {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  z-index: 999;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--border-radius-full);
+  border: 1px solid var(--border-light);
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+}
+
+.theme-fab:hover {
+  transform: scale(1.1);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-glow);
+}
+
+.theme-fab svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--text-primary);
+  fill: none;
+  position: absolute;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
 .header__logo-text {
   color: var(--text-primary);
   display: flex;

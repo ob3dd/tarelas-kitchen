@@ -176,3 +176,35 @@
 .gallery__item:hover .gallery__overlay span {
   transform: translateY(0);
 }
+
+/* See More Instagram link */
+.gallery__see-more {
+  text-align: center;
+  margin-top: var(--space-2xl);
+}
+
+.gallery__instagram-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 0.75rem 1.75rem;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  border: 1.5px solid var(--border-light);
+  border-radius: var(--border-radius-full);
+  transition: all var(--transition-base);
+  letter-spacing: 0.02em;
+}
+
+.gallery__instagram-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.gallery__instagram-btn svg {
+  flex-shrink: 0;
+}

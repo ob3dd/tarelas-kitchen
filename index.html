@@ -43,14 +43,6 @@
         <a href="#contact">Contact</a>
       </nav>
       <div class="header__actions">
-        <button class="header__theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-          <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-          </svg>
-          <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-          </svg>
-        </button>
         <button class="header__cart" id="cart-toggle" aria-label="Open cart">
           <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
@@ -131,63 +123,6 @@
           <h2 class="section-title">Indulge in<br>Culinary Artistry</h2>
         </div>
         <p class="section-desc">Explore our finest selections, crafted to perfection by our world-class chef.</p>
-      </div>
-      <div class="about__cards">
-        <div class="about__card" data-animate="scale-in" data-delay="1">
-          <div class="about__card-image">
-            <!-- REPLACE: Food image -->
-            <img src="/images/menu/jollof-rice.jpg" alt="Jollof Rice" loading="lazy" />
-          </div>
-          <div class="about__card-body">
-            <p class="about__card-name">Jollof Rice</p>
-            <div class="about__card-bottom">
-              <span class="about__card-price">$15</span>
-              <div class="about__card-actions">
-                <button class="card-btn" data-name="Jollof Rice" data-price="15.99" data-image="/images/menu/jollof-rice.jpg">
-                  Order Now
-                  <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </button>
-                <span class="about__card-rating"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 5.0</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="about__card" data-animate="scale-in" data-delay="2">
-          <div class="about__card-image">
-            <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=500&q=80" alt="Peppered Shrimp" loading="lazy" />
-          </div>
-          <div class="about__card-body">
-            <p class="about__card-name">Peppered Shrimp</p>
-            <div class="about__card-bottom">
-              <span class="about__card-price">$18</span>
-              <div class="about__card-actions">
-                <button class="card-btn" data-name="Peppered Shrimp" data-price="18.99" data-image="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=200&q=60">
-                  Order Now
-                  <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </button>
-                <span class="about__card-rating"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 4.9</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="about__card" data-animate="scale-in" data-delay="3">
-          <div class="about__card-image">
-            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&q=80" alt="Chocolate Cake" loading="lazy" />
-          </div>
-          <div class="about__card-body">
-            <p class="about__card-name">Chocolate Lava Cake</p>
-            <div class="about__card-bottom">
-              <span class="about__card-price">$8</span>
-              <div class="about__card-actions">
-                <button class="card-btn" data-name="Chocolate Cake" data-price="8.99" data-image="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&q=60">
-                  Order Now
-                  <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </button>
-                <span class="about__card-rating"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 5.0</span>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -605,6 +540,14 @@
         </div>
 
       </div>
+      <div class="gallery__see-more">
+        <a href="https://instagram.com/tarelaskitchen" target="_blank" rel="noopener" class="gallery__instagram-btn">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+          </svg>
+          See More on Instagram
+        </a>
+      </div>
     </div>
   </section>
 
@@ -911,6 +854,16 @@
       </div>
     </div>
   </div>
+
+  <!-- Floating Theme Toggle -->
+  <button class="theme-fab" id="theme-toggle" aria-label="Toggle theme">
+    <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+    </svg>
+    <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+  </button>
 
   <script type="module" src="/js/main.js"></script>
   <script>
