@@ -7,6 +7,7 @@ import { initCart } from './cart.js';
 import { initCheckout } from './checkout.js';
 import { initAccordion } from './accordion.js';
 import { initNewsletter } from './newsletter.js';
+import { initSlideshow } from './slideshow.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
@@ -18,4 +19,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initCheckout();
   initAccordion();
   initNewsletter();
+  initSlideshow();
 });
